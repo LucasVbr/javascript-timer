@@ -1,2 +1,2 @@
-# javascript-timer
-Make a time in JavaScript
+# JavaScript Timer
+Objective : Make a timer in JavaScript
