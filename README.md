@@ -2,7 +2,7 @@
 
 Objective : Make a timer in JavaScript
 
-[Link to demo](https://lucasvbr.github.io/javascript-timer/?time=300)
+[Link to demo](https://lucasvbr.github.io/javascript-timer/)
 
 ## Installation
 
