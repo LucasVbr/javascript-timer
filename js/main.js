@@ -1,28 +1,19 @@
-var htmlTimer = document.getElementById("timer");
+/* HTML contents */
+var timerHTML = document.getElementById("timer");
 
-var timer = setInterval(timerLoop, 1000);
+/* GET url variable */
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-let time = parseInt(urlParams.get('time'))
+time = getTimeUrl();
 
+/* Set the timer */
+let timer = new Timer(time)
 
-function timerLoop() {
-    htmlTimer.innerHTML = convertSecMin(time);
-    time--;
-    if(time < 0) {
-        clearInterval(timer)
-        htmlTimer.style.color = "red";
+let localTimer = setInterval(() => {
+    timerHTML.innerHTML = timer.toString();
+    timer.decrement();
+    if(timer.getTime() < 0) {
+        clearInterval(localTimer);
+        timerHTML.style.color = "red";
     }
-}
-
-function convertSecMin(value) {
-    let seconds = Math.floor(value % 60);
-    let minuts = Math.floor(value / 60);
-    return `${convertDigits(minuts)}:${convertDigits(seconds)}` 
-}
-
-function convertDigits(number) {
-    return number.toLocaleString('en-US', {
-        minimumIntegerDigits : 2,
-        useGrouping : false});
-}
+}, 1000);

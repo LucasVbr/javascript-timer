@@ -1,5 +1,3 @@
-// NOT USED CURRENTLY
-
 class Timer {
     
     /**
@@ -8,32 +6,39 @@ class Timer {
      * @throws TypeError if time is not a positive Integer  
      */
     constructor(time) {
-        if (!isValid(time)) throw new TypeError(`${time} n'est pas un entier valide`);
+        if (!Number.isInteger(time) && time <= 0)
+            throw new TypeError(`${time} is not valid`);
         this.time = time;
     }
 
-
     /**
-     * Predicate that show if the value of the timer is correctly set
-     * @param {int} valueTest 
-     * @return True if the predicate is verified
-     *         False else
+     * Show the timer in a String version
+     * in the format hh:mm:ss
      */
-    isValid(valueTest) {
-        return Number.isInteger(valueTest) && valueTest > 0
+    toString() {
+        function formatDigits(number) {
+            return number.toLocaleString('en-US', {
+                minimumIntegerDigits : 2,
+                useGrouping : false}
+            );
+        }
+
+        let hours = Math.floor(this.time / 3600);
+        let minuts = Math.floor(this.time / 60) - hours * 60;
+        let seconds = Math.floor(this.time % 60);
+
+        return `${formatDigits(hours)}:`
+               + `${formatDigits(minuts)}:`
+               + `${formatDigits(seconds)}`
     }
 
-    /**
-     * @return the current time
-     */
+    /** Decrement the value of the current time */
+    decrement() {
+        this.time--
+    }
+
+    /** @returns the current time */
     getTime() {
-        return this.time
-    }
-
-    /**
-     * Make start the timer
-     */
-    startTimer() {
-        setTimeout(this.time--, 1000)
+        return this.time;
     }
 }
