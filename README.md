@@ -4,7 +4,7 @@ Objective : Make a timer in JavaScript
 
 ## Installation
 
--   Go to the [Website](https://lucasvbr.github.io/JavascriptTimer/?minutes=5)
+-   Go to the [Website](https://lucasvbr.github.io/timer/?minutes=5)
 -   To set time, you need to add parameters in the URL :  
     URL syntax : `<URL>?[param1]&[param2]&[...]`  
     Parameter syntax : `<type>=<value>`
@@ -14,5 +14,5 @@ Objective : Make a timer in JavaScript
     
     Example :  
     ```url
-    https://lucasvbr.github.io/JavascriptTimer/?hours=10&minutes=10&seconds=10
+    https://lucasvbr.github.io/timer/?hours=10&minutes=10&seconds=10
     ```
